@@ -4,7 +4,6 @@ import useConversation from '../../zustand/useConversation';
 import useGetConversation from '../../hooks/useGetConversation';
 import toast from 'react-hot-toast';
 
-
 const SearchInput = () => {
   const [search, setSearch] = useState("");
   const {setSelectedConversation} = useConversation();
@@ -29,32 +28,22 @@ const SearchInput = () => {
   }
 
   return (
-    <form className='flex items-center- gap-2' onSubmit={handleSubmit}>
-      <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search...' className="input input-bordered rounded-full" />
-      <button type='submit' className='btn btn-circle bg-sky-500 text-white'>
-        <IoSearchSharp className='w-5 h-5 outline-none'/>
+    <form onSubmit={handleSubmit} className='relative'>
+      <input 
+        type="text" 
+        value={search} 
+        onChange={(e) => setSearch(e.target.value)} 
+        placeholder='Search...' 
+        className="w-full bg-gray-700/50 text-gray-200 placeholder-gray-400 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+      />
+      <button 
+        type='submit' 
+        className='absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-blue-500 hover:bg-blue-600 rounded-full transition-all duration-300'
+      >
+        <IoSearchSharp className='w-4 h-4 text-white'/>
       </button>
     </form>
   )
 }
 
 export default SearchInput
-
-
-
-// import React from 'react'
-// import { IoSearchSharp } from "react-icons/io5";
-
-
-// const SearchInput = () => {
-//   return (
-//     <form className='flex items-center- gap-2'>
-//       <input type="text" placeholder='Search...' className="input input-bordered rounded-full" />
-//       <button type='submit' className='btn btn-circle bg-sky-500 text-white'>
-//         <IoSearchSharp className='w-5 h-5 outline-none'/>
-//       </button>
-//     </form>
-//   )
-// }
-
-// export default SearchInput
